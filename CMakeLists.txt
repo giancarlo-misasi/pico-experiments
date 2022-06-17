@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 
+# pull in the sdk to avoid cross compile issues
+include(pico_sdk_import.cmake)
+
 # setup language settings
 project(PICO_EXPERIMENTS C CXX ASM)
 set(CMAKE_C_STANDARD 11)
@@ -11,9 +14,6 @@ add_compile_options(
     # -Wno-unused-function # we have some for the docs that aren't called
     # -Wno-maybe-uninitialized
 )
-
-# pull in the sdk
-include(pico_sdk_import.cmake)
 
 # validate pico sdk version
 if (PICO_SDK_VERSION_STRING VERSION_LESS "1.3.0")
